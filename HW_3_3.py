@@ -4,11 +4,11 @@ def normalize_phone(phone_number):
     pattern = r"[\D]"
     replacement = ""
     new_phone_number = re.sub(pattern, replacement, phone_number)
-    if new_phone_number.find("38") == 0:
-        new_phone_number = "+" + new_phone_number
-    else:
+    if new_phone_number.find("0") == 0:
         new_phone_number = "+38" + new_phone_number
-    return new_phone_number
+    else:
+        new_phone_number = "+" + new_phone_number
+    return(new_phone_number)
 
 raw_numbers = [
     "067\\t123 4567",
@@ -20,6 +20,9 @@ raw_numbers = [
     "(050)8889900",
     "38050-111-22-22",
     "38050 111 22 11   ",
+    "432 11 222 22 22",
+    "+123456789012",
+    "+9720546232721"
 ]
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
