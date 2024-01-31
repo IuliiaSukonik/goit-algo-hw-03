@@ -10,7 +10,6 @@ def get_numbers_ticket(min, max, quantity):
             return new_list.clear()
         ticket_win = random.sample(new_list, quantity)
         return ticket_win
-
     except ValueError:
         return new_list
 
